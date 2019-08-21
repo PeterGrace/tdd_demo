@@ -8,7 +8,7 @@ setup(
     install_requires=[
         'nose',
         'tox',
-        'bddcli'
+        'behave'
     ],
     entry_points='''
         [console_scripts]

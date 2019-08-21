@@ -21,8 +21,16 @@ def step_impl(context, first, second):
 def step_impl(context, value):
     # because we get stdout as a bytes string, we need to convert it to ascii and then remove the trailing \n (rstrip does this for us)
     val = context.stdout.decode("ascii").rstrip()
-    assert val == value
+    try:
+        assert val == value
+    except AssertionError as ex:
+        print(f"val is |{val}|, value is |{value}|")
+        raise ex
 
 @then('we should get a non-zero return code')
 def step_impl(context):
-    assert context.returncode != 0
+    try:
+        assert context.returncode != 0
+    except AssertionError as ex:
+        print(f"returncode is {context.returncode}\nstdout is {context.stdout}\nstderr is {context.stderr}")
+        raise ex
