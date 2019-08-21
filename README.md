@@ -13,3 +13,10 @@ Test-Driven Design, or TDD, is a programming dogma that is followed in varying d
   1. I'm then going to execute the unit tests to confirm that my function works.
   1. I'm optionally going to execute a code coverage report to see how much of my program is actually covered by available unit tests.
 
+## How to use this repo
+### install
+  1. clone repo
+  1. execute `pip install --user -e .` to install the repo as a symlink
+
+### usage
+  1. run `tox` to create a specific virtual env that installs your whole project, and then runs the specified tests.
